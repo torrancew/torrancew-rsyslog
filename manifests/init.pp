@@ -1,12 +1,7 @@
 class rsyslog {
-  class {
-    'rsyslog::install':
-      ensure => present;
-    'rsyslog::configure':
-      ensure => present;
-    'rsyslog::service':
-      ensure => present;
-  }
+  include 'rsyslog::install'
+  include 'rsyslog::configure'
+  include 'rsyslog::service'
 
   anchor { 'rsyslog::start': } -> Class['rsyslog::install']
   Class['rsyslog::service']    -> anchor { 'rsyslog::end': }

@@ -6,7 +6,7 @@
 ###############
 ### Modules ###
 ###############
-<% @data.keys.sort.each do |mod| -%>
+<% @data['module'].sort.each do |mod| -%>
 $ModLoad <%= mod %>
 <% end -%>
 
